@@ -25,6 +25,35 @@ class SignUpForm extends StatelessWidget {
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
+              hintText: "Username",
+              prefixIcon: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
+                child: SvgPicture.asset(
+                  "assets/icons/Emoji.svg",
+                  height: 24,
+                  width: 24,
+                  colorFilter: ColorFilter.mode(
+                    Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .color!
+                        .withOpacity(0.3),
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: defaultPadding),
+          TextFormField(
+            onSaved: (emal) {
+              // Email
+            },
+            validator: emaildValidator.call,
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
               hintText: "Email address",
               prefixIcon: Padding(
                 padding:
