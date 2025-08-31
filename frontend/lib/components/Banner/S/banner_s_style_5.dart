@@ -8,7 +8,7 @@ import 'banner_s.dart';
 class BannerSStyle5 extends StatelessWidget {
   const BannerSStyle5({
     super.key,
-    this.image = "https://i.imgur.com/wQ0sNHT.png",
+    this.image = "https://i.imgur.com/6EbSueO.jpeg",
     required this.title,
     required this.press,
     this.subtitle,
