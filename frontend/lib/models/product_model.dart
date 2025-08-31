@@ -49,7 +49,7 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 5,
   ),
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image: "https://i.imgur.com/KdUaOT6.jpeg",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
     price: 650.62,
@@ -57,7 +57,7 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image: "https://i.imgur.com/dw9MkTb.jpeg",
     title: "white satin corset top",
     brandName: "Lipsy london",
     price: 1264,
@@ -93,7 +93,7 @@ List<ProductModel> demoFlashSaleProducts = [
 ];
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image: "https://i.imgur.com/dw9MkTb.jpeg",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
     price: 650.62,
@@ -101,7 +101,7 @@ List<ProductModel> demoBestSellersProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image: "https://i.imgur.com/KdUaOT6.jpeg",
     title: "white satin corset top",
     brandName: "Lipsy london",
     price: 1264,

@@ -45,12 +45,12 @@ class _EntryPointState extends State<EntryPoint> {
         leading: const SizedBox(),
         leadingWidth: 0,
         centerTitle: false,
-        title: SvgPicture.asset(
-          "assets/logo/Shoplon.svg",
-          colorFilter: ColorFilter.mode(
-              Theme.of(context).iconTheme.color!, BlendMode.srcIn),
-          height: 20,
-          width: 100,
+        title: const Text(
+          "Velvo Drive",
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w400
+          ),
         ),
         actions: [
           IconButton(
@@ -103,9 +103,9 @@ class _EntryPointState extends State<EntryPoint> {
           unselectedItemColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Shop.svg"),
-              activeIcon: svgIcon("assets/icons/Shop.svg", color: primaryColor),
-              label: "Shop",
+              icon: svgIcon("assets/icons/Man.svg"),
+              activeIcon: svgIcon("assets/icons/Man.svg", color: primaryColor),
+              label: "Vehicles",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Category.svg"),
