@@ -17,8 +17,8 @@ class CategoryModel {
 
 List<CategoryModel> demoCategories = [
   CategoryModel(name: "All Categories"),
-  CategoryModel(name: "Man's", svgSrc: "assets/icons/Man.svg"),
-  CategoryModel(name: "Woman’s", svgSrc: "assets/icons/Woman.svg"),
+  CategoryModel(name: "Bikes", svgSrc: "assets/icons/Woman.svg"),
+  CategoryModel(name: "Cars", svgSrc: "assets/icons/Man.svg"),
 ];
 // End For Preview
 
