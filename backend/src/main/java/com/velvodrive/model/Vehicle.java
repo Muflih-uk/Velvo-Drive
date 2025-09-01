@@ -10,10 +10,15 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+    private String description;
     private String model;
     private double pricePerDay;
-    private String photoUrl;
+    private String main_photo;
+    private String second_photo;
+    private String third_photo;
     private String ownerPhoneNumber;
+    private String createdAt;
     private boolean isAvailable = true;
 
     private int rentalCount = 0;
