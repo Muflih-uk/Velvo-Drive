@@ -29,7 +29,7 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public void register(RegisterRequest registerRequest){
-        if(userRepository.findByUsername(registerRequest.getUsername().isPresent())){
+        if(userRepository.findByUsername(registerRequest.getUsername()).isPresent()){
             throw new IllegalStateException("Username already exists!.");
         }
 
