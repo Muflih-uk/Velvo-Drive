@@ -5,6 +5,7 @@ import com.velvodrive.model.Rental;
 import com.velvodrive.model.User;
 import com.velvodrive.model.Vehicle;
 import com.velvodrive.repository.UserRepository;
+import com.velvodrive.repository.VehicleRepository;
 import jakarta.transaction.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class VehicleService {
         newVehicle.setCreatedAt(vehicleDTO.getCreatedAt());
         newVehicle.setAvailable(true);
 
-        return vehicleRepository.save(vehicle);
+        return vehicleRepository.save(newVehicle);
     }
 
     @Transactional
