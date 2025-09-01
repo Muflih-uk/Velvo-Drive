@@ -4,6 +4,7 @@ import com.velvodrive.dto.VehicleDTO;
 import com.velvodrive.model.Rental;
 import com.velvodrive.model.User;
 import com.velvodrive.model.Vehicle;
+import com.velvodrive.repository.RentalRepository;
 import com.velvodrive.repository.UserRepository;
 import com.velvodrive.repository.VehicleRepository;
 import jakarta.transaction.*;
