@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_6HShHmddCo
 createdAt: 2025-09-02T08:16:12.110634375
-updatedAt: 2025-09-02T08:19:21.428584213
+updatedAt: 2025-09-02T08:57:13.750376630
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -10,7 +10,15 @@ authenticationType: null
 body: {}
 bodyType: null
 description: ''
-headers: []
+headers:
+- enabled: true
+  name: Authorization
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwMzAxOCwiZXhwIjoxNzU2ODg5NDE4fQ.0Xa8PZAoMfUlPdjt8EPTJI607SNnyaIRzH_YnugJQijVVqezIccaAT4kJe4pEN7x_HQ7vEPBehnutNZvB_fQQA
+  id: DF5SwqeZ4s
+- enabled: true
+  name: ''
+  value: ''
+  id: s7Q3A57nxE
 method: GET
 name: Flash Sale
 sortPriority: -1756800127694.0

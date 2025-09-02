@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_W5e6v798iB
 createdAt: 2025-09-02T08:07:14.493912824
-updatedAt: 2025-09-02T08:18:31.523956847
+updatedAt: 2025-09-02T08:51:32.599370273
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -28,8 +28,16 @@ headers:
   name: Content-Type
   value: application/json
   id: U52kejnAgx
+- enabled: true
+  name: Authorization
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwMzAxOCwiZXhwIjoxNzU2ODg5NDE4fQ.0Xa8PZAoMfUlPdjt8EPTJI607SNnyaIRzH_YnugJQijVVqezIccaAT4kJe4pEN7x_HQ7vEPBehnutNZvB_fQQA
+  id: sgvmd4SWZI
+- enabled: true
+  name: ''
+  value: ''
+  id: PBpYZJMSwM
 method: POST
 name: Add Vehicle
 sortPriority: -1756800127694.0
-url: http://localhost:8080/api/vehicles/add/
+url: http://localhost:8080/api/vehicles/add
 urlParameters: []

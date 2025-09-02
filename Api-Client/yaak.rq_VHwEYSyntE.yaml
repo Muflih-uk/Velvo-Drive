@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_VHwEYSyntE
 createdAt: 2025-09-02T08:15:40.410548568
-updatedAt: 2025-09-02T08:19:13.258830812
+updatedAt: 2025-09-02T08:58:08.646077556
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -10,7 +10,15 @@ authenticationType: null
 body: {}
 bodyType: null
 description: ''
-headers: []
+headers:
+- enabled: true
+  name: Authorization
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwMzAxOCwiZXhwIjoxNzU2ODg5NDE4fQ.0Xa8PZAoMfUlPdjt8EPTJI607SNnyaIRzH_YnugJQijVVqezIccaAT4kJe4pEN7x_HQ7vEPBehnutNZvB_fQQA
+  id: enX86dayHv
+- enabled: true
+  name: ''
+  value: ''
+  id: DcjTQvbTui
 method: GET
 name: BestSeller Vehicle
 sortPriority: -1756800127694.0
