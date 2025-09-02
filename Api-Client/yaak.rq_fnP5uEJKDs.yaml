@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_fnP5uEJKDs
 createdAt: 2025-09-02T09:09:38.889542609
-updatedAt: 2025-09-02T09:09:59.160980597
+updatedAt: 2025-09-02T09:34:14.940945891
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -10,8 +10,16 @@ authenticationType: null
 body: {}
 bodyType: null
 description: ''
-headers: []
-method: GET
+headers:
+- enabled: true
+  name: Authorization
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwNTU1NCwiZXhwIjoxNzU2ODkxOTU0fQ.Nnzj2mbZ1kBWq8II2DNpYEiZNu-p5kRaEpYqXMoHvZx8_EWPQ3IrkFwSiNuyZtygv2c791C4-a-MlU_EjdczAA
+  id: SbB4jih9Ek
+- enabled: true
+  name: ''
+  value: ''
+  id: VGT0jbZPDh
+method: DELETE
 name: Delete Vehicle
 sortPriority: -1756800127694.0
 url: http://localhost:8080/api/vehicles/1
