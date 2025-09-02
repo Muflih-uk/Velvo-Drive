@@ -1,0 +1,28 @@
+type: http_request
+model: http_request
+id: rq_FKeJtKy7H2
+createdAt: 2025-09-02T08:02:07.697743776
+updatedAt: 2025-09-02T08:05:47.520425019
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "password123"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: WqmBufaDQ3
+method: POST
+name: ''
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/auth/register/
+urlParameters: []

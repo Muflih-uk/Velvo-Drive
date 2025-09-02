@@ -1,0 +1,27 @@
+type: http_request
+model: http_request
+id: rq_V7UDUpRVRm
+createdAt: 2025-09-02T08:05:56.645760634
+updatedAt: 2025-09-02T08:07:10.814070195
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "username": "testuser",
+      "password": "password123"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: QRpA5eVIeM
+method: POST
+name: ''
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/auth/login/
+urlParameters: []
