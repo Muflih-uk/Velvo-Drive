@@ -1,5 +1,6 @@
 package com.velvodrive.controller;
 
+import com.velvodrive.model.ChatMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
