@@ -7,22 +7,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
-@Service
-public class CustomUserDetailsService implements UserDetailsService {
+@Service // Mark this as a Spring service component
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // This is the same logic you had in your SecurityConfig bean
         return userRepository.findByUsername(username)
                 .map(user -> new User(
                         user.getUsername(),
                         user.getPassword(),
                         new ArrayList<>())) // Using an empty list for authorities
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 }
