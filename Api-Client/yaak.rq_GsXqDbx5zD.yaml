@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_GsXqDbx5zD
+createdAt: 2025-09-02T08:13:11.859651954
+updatedAt: 2025-09-02T08:18:43.222717277
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Available Vehicle
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/vehicles/available/
+urlParameters: []

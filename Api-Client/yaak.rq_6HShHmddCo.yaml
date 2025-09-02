@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_6HShHmddCo
+createdAt: 2025-09-02T08:16:12.110634375
+updatedAt: 2025-09-02T08:19:21.428584213
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Flash Sale
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/featured/flash-sales
+urlParameters: []

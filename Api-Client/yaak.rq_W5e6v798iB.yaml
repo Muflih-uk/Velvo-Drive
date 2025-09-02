@@ -2,17 +2,34 @@ type: http_request
 model: http_request
 id: rq_W5e6v798iB
 createdAt: 2025-09-02T08:07:14.493912824
-updatedAt: 2025-09-02T08:10:49.781700210
+updatedAt: 2025-09-02T08:18:31.523956847
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
 authenticationType: null
-body: {}
-bodyType: null
+body:
+  text: |-
+    {
+      "ownerId": 1,
+      "name": "Honda Activa 6G",
+      "description": "Reliable and fuel-efficient scooter, perfect for city commutes in Tirur.",
+      "model": "Activa 6G - 2023",
+      "pricePerDay": 450.0,
+      "main_photo": "https://your-storage-url.com/activa1.jpg",
+      "second_photo": "https://your-storage-url.com/activa2.jpg",
+      "third_photo": "",
+      "ownerPhoneNumber": "+919998887776",
+      "createdAt": "2025-09-02T09:10:00Z"
+    }
+bodyType: application/json
 description: ''
-headers: []
-method: GET
-name: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: U52kejnAgx
+method: POST
+name: Add Vehicle
 sortPriority: -1756800127694.0
 url: http://localhost:8080/api/vehicles/add/
 urlParameters: []

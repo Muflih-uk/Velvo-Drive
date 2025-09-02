@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_2PX2djCxgR
+createdAt: 2025-09-02T08:14:58.686601258
+updatedAt: 2025-09-02T08:18:50.715263717
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: POST
+name: Rent Vehicle
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/vehicles/1/rent?renterId=2&durationInDays=3
+urlParameters: []

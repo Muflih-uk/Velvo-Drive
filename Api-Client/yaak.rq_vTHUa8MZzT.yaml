@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_vTHUa8MZzT
+createdAt: 2025-09-02T08:15:09.721002994
+updatedAt: 2025-09-02T08:19:00.294031068
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Polpular Vehicle
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/featured/popular
+urlParameters: []

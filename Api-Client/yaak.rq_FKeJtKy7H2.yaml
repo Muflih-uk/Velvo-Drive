@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_FKeJtKy7H2
 createdAt: 2025-09-02T08:02:07.697743776
-updatedAt: 2025-09-02T08:05:47.520425019
+updatedAt: 2025-09-02T08:18:13.041603264
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -22,7 +22,7 @@ headers:
   value: application/json
   id: WqmBufaDQ3
 method: POST
-name: ''
+name: Register
 sortPriority: -1756800127694.0
 url: http://localhost:8080/api/auth/register/
 urlParameters: []

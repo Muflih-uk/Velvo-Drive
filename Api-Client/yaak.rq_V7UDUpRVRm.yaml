@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_V7UDUpRVRm
 createdAt: 2025-09-02T08:05:56.645760634
-updatedAt: 2025-09-02T08:07:10.814070195
+updatedAt: 2025-09-02T08:18:19.946762478
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -21,7 +21,7 @@ headers:
   value: application/json
   id: QRpA5eVIeM
 method: POST
-name: ''
+name: Login
 sortPriority: -1756800127694.0
 url: http://localhost:8080/api/auth/login/
 urlParameters: []
