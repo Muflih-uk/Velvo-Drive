@@ -11,6 +11,7 @@ import jakarta.transaction.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.AccessDeniedException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -70,6 +71,22 @@ public class VehicleService {
 
         return rentalRepository.save(rental);
 
+    }
+
+    @Transactional
+    public void deleteVehicle(Long vehicleId, String username) throws AccessDeniedException {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId)
+                .orElseThrow(() -> new RuntimeException("Vehicle not found with id: " + vehicleId));
+
+        if (!vehicle.getOwner().getUsername().equals(username)) {
+            throw new AccessDeniedException("You are not authorized to delete this vehicle.");
+        }
+
+        if (rentalRepository.existsByVehicleId(vehicleId)) {
+            throw new RuntimeException("Cannot delete vehicle with existing rental history. Consider marking it as unavailable instead.");
+        }
+
+        vehicleRepository.delete(vehicle);
     }
 
     public List<Vehicle> getAvailableVehicles() {

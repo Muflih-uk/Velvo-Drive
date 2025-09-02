@@ -12,4 +12,6 @@ public interface RentalRepository extends JpaRepository<Rental, Long> {
     List<Rental> findByRenterId(Long renterId);
 
     List<Rental> findByVehicleId(Long vehicleId);
+
+    boolean existsByVehicleId(Long vehicleId);
 }
