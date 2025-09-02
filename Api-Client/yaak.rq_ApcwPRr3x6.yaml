@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_ApcwPRr3x6
 createdAt: 2025-09-02T08:16:49.167724641
-updatedAt: 2025-09-02T08:57:43.736365734
+updatedAt: 2025-09-02T10:17:52.842532861
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,14 +13,14 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwMzAxOCwiZXhwIjoxNzU2ODg5NDE4fQ.0Xa8PZAoMfUlPdjt8EPTJI607SNnyaIRzH_YnugJQijVVqezIccaAT4kJe4pEN7x_HQ7vEPBehnutNZvB_fQQA
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwODI0MSwiZXhwIjoxNzU2ODk0NjQxfQ.soWEIO8MjCJwX6zdeTcnfszKhICxneQ8wuOALyAq5jjPzr8gsUI5DlG4hNNJxbDZMgS1cppK9kHKe7vJh-ygnw
   id: q4TVZ9SeUD
 - enabled: true
   name: ''
   value: ''
-  id: DMQcHXUBaI
+  id: HAzwNQk3fU
 method: POST
 name: Logout
 sortPriority: -1756800127694.0
-url: http://localhost:8080/api/auth/logout
+url: https://velvo-drive.onrender.com/api/auth/logout
 urlParameters: []

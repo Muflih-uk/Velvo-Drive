@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_vTHUa8MZzT
 createdAt: 2025-09-02T08:15:09.721002994
-updatedAt: 2025-09-02T08:56:31.133318838
+updatedAt: 2025-09-02T10:21:10.613047913
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -22,5 +22,5 @@ headers:
 method: GET
 name: Polpular Vehicle
 sortPriority: -1756800127694.0
-url: http://localhost:8080/api/featured/popular
+url: https://velvo-drive.onrender.com/api/featured/popular
 urlParameters: []

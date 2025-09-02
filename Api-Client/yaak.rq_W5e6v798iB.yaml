@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_W5e6v798iB
 createdAt: 2025-09-02T08:07:14.493912824
-updatedAt: 2025-09-02T09:33:53.237500570
+updatedAt: 2025-09-02T10:20:17.606919054
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -30,14 +30,14 @@ headers:
   id: U52kejnAgx
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwNTU1NCwiZXhwIjoxNzU2ODkxOTU0fQ.Nnzj2mbZ1kBWq8II2DNpYEiZNu-p5kRaEpYqXMoHvZx8_EWPQ3IrkFwSiNuyZtygv2c791C4-a-MlU_EjdczAA
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2ODA4MzA5LCJleHAiOjE3NTY4OTQ3MDl9.OpyTHz8K9hNscGJvTwOHUphVvGgOBNX_zwkdRMIdjafoLrf4UItF3LV_iVc7tMhEz8_trEbliy1oUSN3rimD3Q
   id: sgvmd4SWZI
 - enabled: true
   name: ''
   value: ''
-  id: qknmDu8utA
+  id: 2jPBz4Qpa7
 method: POST
 name: Add Vehicle
 sortPriority: -1756800127694.0
-url: http://localhost:8080/api/vehicles/add
+url: https://velvo-drive.onrender.com/api/vehicles/add
 urlParameters: []
