@@ -1,0 +1,18 @@
+type: http_request
+model: http_request
+id: rq_fnP5uEJKDs
+createdAt: 2025-09-02T09:09:38.889542609
+updatedAt: 2025-09-02T09:09:59.160980597
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Delete Vehicle
+sortPriority: -1756800127694.0
+url: http://localhost:8080/api/vehicles/1
+urlParameters: []
