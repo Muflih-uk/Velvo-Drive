@@ -28,8 +28,6 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  // While loading use 👇
-                  // const BannerMSkelton(),‚
                   BannerSStyle1(
                     title: "New \narrival",
                     subtitle: "SPECIAL OFFER",
@@ -39,7 +37,6 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: defaultPadding / 4),
-                  // We have 4 banner styles, all in the pro version
                 ],
               ),
             ),

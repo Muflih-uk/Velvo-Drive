@@ -64,7 +64,6 @@ class _EntryPointState extends State<EntryPoint> {
           ),
         ],
       ),
-      // body: _pages[_currentIndex],
       body: PageTransitionSwitcher(
         duration: defaultDuration,
         transitionBuilder: (child, animation, secondAnimation) {
@@ -130,6 +129,11 @@ class _EntryPointState extends State<EntryPoint> {
           ],
         ),
       ),
+      floatingActionButton: 
+      FloatingActionButton(
+        onPressed: (){}
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

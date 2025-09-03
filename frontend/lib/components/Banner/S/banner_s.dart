@@ -16,7 +16,7 @@ class BannerS extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2.56,
+      aspectRatio: 2.5,
       child: GestureDetector(
         onTap: press,
         child: Stack(
