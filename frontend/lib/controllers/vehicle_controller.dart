@@ -8,7 +8,6 @@ import 'package:intl/intl.dart';
 
 import '../models/vehicle_model.dart';
 
-// Enum to identify which image slot is being picked
 enum ImageSlot { main, second, third }
 
 class VehicleController with ChangeNotifier {
@@ -26,9 +25,9 @@ class VehicleController with ChangeNotifier {
 
   final ImagePicker _picker = ImagePicker();
   final ImageCropper _cropper = ImageCropper();
-  final Dio _dio = Dio(); // Create a Dio instance
+  final Dio _dio = Dio(); 
 
-  // --- Image Handling Logic (No changes here) ---
+  
 
   Future<void> pickAndCropImage(ImageSlot slot) async {
     final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -80,7 +79,6 @@ class VehicleController with ChangeNotifier {
     }
   }
   
-  // --- Form Submission & API Logic (UPDATED) ---
 
   Future<void> submitVehicleData({
     required Map<String, String> formData,
