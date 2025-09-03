@@ -62,11 +62,9 @@ class VehicleController with ChangeNotifier {
     if (pickedFile != null) {
       final CroppedFile? croppedFile = await _cropper.cropImage(
         sourcePath: pickedFile.path,
-        // ... (rest of the cropping logic is the same)
       );
 
       if (croppedFile != null) {
-        // ... (rest of the logic to assign the file is the same)
         switch (slot) {
           case ImageSlot.main:
             _mainImage = File(croppedFile.path);
@@ -133,7 +131,6 @@ class VehicleController with ChangeNotifier {
         thirdPhotoUrl = await _uploadImageToCloudinary(_thirdImage!);
       }
 
-      // 2. Create the Vehicle model (No change)
       final vehicle = Vehicle(
         ownerId: 1,
         name: formData['name']!,
@@ -147,13 +144,12 @@ class VehicleController with ChangeNotifier {
         createdAt: DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(DateTime.now().toUtc()),
       );
 
-      // 3. Send data to your API using Dio (*** THIS IS THE UPDATED PART ***)
       const String apiUrl = 'https://velvo-drive.onrender.com/api/vehicles/add';
       const String authToken = 'YOUR_BEARER_TOKEN_HERE'; 
 
       final response = await _dio.post(
         apiUrl,
-        data: vehicle.toJson(), // Dio handles JSON encoding for maps
+        data: vehicle.toJson(), 
         options: Options(
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
