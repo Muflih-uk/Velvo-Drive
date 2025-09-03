@@ -131,9 +131,17 @@ class _EntryPointState extends State<EntryPoint> {
       ),
       floatingActionButton: 
       FloatingActionButton(
-        onPressed: (){}
+        onPressed: (){},
+        backgroundColor: Colors.white,
+        child: SvgPicture.asset(
+          "assets/icons/Plus1.svg",
+          height: 38,
+          colorFilter: ColorFilter.mode(
+              Theme.of(context).textTheme.bodyLarge!.color!,
+              BlendMode.srcIn),
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      
     );
   }
 }
