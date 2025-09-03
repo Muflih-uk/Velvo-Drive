@@ -222,7 +222,7 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => context.read<VehicleController>().pickAndCropImage(slot),
+          onTap: () => context.read<VehicleController>().showImageSourceOptions(context, slot),
           child: Container(
             width: 100,
             height: 100,
