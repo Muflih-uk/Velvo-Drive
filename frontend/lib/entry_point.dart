@@ -123,7 +123,9 @@ class _EntryPointState extends State<EntryPoint> {
       ),
       floatingActionButton: 
       FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.pushNamed(context, addVehicle);
+        },
         backgroundColor: Colors.white,
         child: SvgPicture.asset(
           "assets/icons/Plus1.svg",
