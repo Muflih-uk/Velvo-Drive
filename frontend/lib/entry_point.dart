@@ -1,7 +1,9 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/constants.dart';
+import 'package:shop/provider/bottom_nav_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
 class EntryPoint extends StatefulWidget {
@@ -15,15 +17,14 @@ class _EntryPointState extends State<EntryPoint> {
   final List _pages = const [
     HomeScreen(),
     DiscoverScreen(),
-    BookmarkScreen(),
-    // EmptyCartScreen(), // if Cart is empty
-    CartScreen(),
+    BookmarkScreen(), // if Cart is empty
     ProfileScreen(),
   ];
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    final bottomNavProvider = Provider.of<BottomNavProvider>(context);
+
     SvgPicture svgIcon(String src, {Color? color}) {
       return SvgPicture.asset(
         src,
@@ -73,7 +74,7 @@ class _EntryPointState extends State<EntryPoint> {
             child: child,
           );
         },
-        child: _pages[_currentIndex],
+        child: _pages[bottomNavProvider.currentIndex],
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: defaultPadding / 2),
@@ -81,13 +82,9 @@ class _EntryPointState extends State<EntryPoint> {
             ? Colors.white
             : const Color(0xFF101015),
         child: BottomNavigationBar(
-          currentIndex: _currentIndex,
+          currentIndex: bottomNavProvider.currentIndex,
           onTap: (index) {
-            if (index != _currentIndex) {
-              setState(() {
-                _currentIndex = index;
-              });
-            }
+              bottomNavProvider.setIndex(index);
           },
           backgroundColor: Theme.of(context).brightness == Brightness.light
               ? Colors.white
@@ -114,11 +111,6 @@ class _EntryPointState extends State<EntryPoint> {
               activeIcon:
                   svgIcon("assets/icons/Bookmark.svg", color: primaryColor),
               label: "Bookmark",
-            ),
-            BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Bag.svg"),
-              activeIcon: svgIcon("assets/icons/Bag.svg", color: primaryColor),
-              label: "Cart",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Profile.svg"),
