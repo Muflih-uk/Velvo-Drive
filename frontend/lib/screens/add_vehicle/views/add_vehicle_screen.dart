@@ -60,7 +60,6 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
         'ownerPhoneNumber': _phoneController.text,
       };
       
-      // Access the controller via context.read and call the submit method
       context.read<VehicleController>().submitVehicleData(
         formData: formData,
         context: context,
@@ -70,12 +69,10 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
 
   @override
   Widget build(BuildContext context) {
-    // Consumer widget rebuilds when the controller's state changes
     return Consumer<VehicleController>(
       builder: (context, controller, child) {
         return Stack(
           children: [
-            // The main form content
             Form(
               key: _formKey,
               child: ListView(
