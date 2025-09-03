@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 
 import '../models/vehicle_model.dart';
@@ -84,16 +83,32 @@ class VehicleController with ChangeNotifier {
     }
   }
 
-  Future<String> _uploadImageToFirebase(File image) async {
+  Future<String> _uploadImageToCloudinary(File image) async {
+    const String cloudName = "dsukah8ss"; 
+    const String uploadPreset = "ml_default"; 
+
+    String url = "https://api.cloudinary.com/v1_1/$cloudName/image/upload";
+
+    final fileName = image.path.split('/').last;
+    final formData = FormData.fromMap({
+      'file': await MultipartFile.fromFile(image.path, filename: fileName),
+      'upload_preset': uploadPreset,
+    });
+
     try {
-      final String fileName = 'vehicles/${DateTime.now().millisecondsSinceEpoch}.png';
-      final Reference storageRef = FirebaseStorage.instance.ref().child(fileName);
-      final UploadTask uploadTask = storageRef.putFile(image);
-      final TaskSnapshot snapshot = await uploadTask;
-      return await snapshot.ref.getDownloadURL();
-    } catch (e) {
-      debugPrint('Firebase Upload Error: $e');
+      final response = await _dio.post(url, data: formData);
+      if (response.statusCode == 200) {
+        final responseData = response.data as Map<String, dynamic>;
+        return responseData['secure_url'];
+      } else {
+        throw Exception('Failed to upload image. Status code: ${response.statusCode}');
+      }
+    } on DioException catch (e) {
+      debugPrint('Cloudinary Upload Error: ${e.response?.data}');
       throw Exception('Failed to upload image.');
+    } catch (e) {
+      debugPrint('Cloudinary Upload Error: $e');
+      throw Exception('An unknown error occurred during upload.');
     }
   }
   
@@ -112,11 +127,11 @@ class VehicleController with ChangeNotifier {
 
     try {
       // 1. Upload images (No change)
-      final String mainPhotoUrl = await _uploadImageToFirebase(_mainImage!);
-      final String secondPhotoUrl = await _uploadImageToFirebase(_secondImage!);
+      final String mainPhotoUrl = await _uploadImageToCloudinary(_mainImage!);
+      final String secondPhotoUrl = await _uploadImageToCloudinary(_secondImage!);
       String? thirdPhotoUrl;
       if (_thirdImage != null) {
-        thirdPhotoUrl = await _uploadImageToFirebase(_thirdImage!);
+        thirdPhotoUrl = await _uploadImageToCloudinary(_thirdImage!);
       }
 
       // 2. Create the Vehicle model (No change)
@@ -148,23 +163,17 @@ class VehicleController with ChangeNotifier {
         ),
       );
       
-      // With Dio, a non-2xx status code will throw an exception,
-      // so if we get here, the request was successful.
       _showSnackBar(context, 'Vehicle added successfully!');
 
     } on DioException catch (e) {
-      // Handle Dio-specific errors (like network issues, 404, 500)
       String errorMessage = 'API Error: Failed to add vehicle.';
       if (e.response != null) {
-        // The server responded with a status code that falls out of the range of 2xx
         errorMessage = 'API Error [${e.response?.statusCode}]: ${e.response?.data['message'] ?? e.response?.data}';
       } else {
-        // Something happened in setting up or sending the request that triggered an Error
         errorMessage = 'Network Error: Please check your connection.';
       }
        _showSnackBar(context, errorMessage, isError: true);
     } catch (e) {
-      // Handle other errors (like image upload failure)
       _showSnackBar(context, 'An unexpected error occurred: $e', isError: true);
     } finally {
       _setLoading(false);
