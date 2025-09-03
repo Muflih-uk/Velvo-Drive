@@ -126,7 +126,6 @@ class VehicleController with ChangeNotifier {
     }
 
     try {
-      // 1. Upload images (No change)
       final String mainPhotoUrl = await _uploadImageToCloudinary(_mainImage!);
       final String secondPhotoUrl = await _uploadImageToCloudinary(_secondImage!);
       String? thirdPhotoUrl;
