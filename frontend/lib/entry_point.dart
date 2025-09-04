@@ -14,11 +14,11 @@ class EntryPoint extends StatefulWidget {
 }
 
 class _EntryPointState extends State<EntryPoint> {
-  final List _pages = const [
-    HomeScreen(),
+  final List _pages = [
+    const HomeScreen(),
     DiscoverScreen(),
-    BookmarkScreen(), // if Cart is empty
-    ProfileScreen(),
+    const BookmarkScreen(), 
+    const ProfileScreen(),
   ];
 
   @override
