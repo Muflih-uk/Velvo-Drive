@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_GsXqDbx5zD
 createdAt: 2025-09-02T08:13:11.859651954
-updatedAt: 2025-09-02T10:18:56.856303274
+updatedAt: 2025-09-04T06:33:11.968155773
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,12 +13,12 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2ODA4MzA5LCJleHAiOjE3NTY4OTQ3MDl9.OpyTHz8K9hNscGJvTwOHUphVvGgOBNX_zwkdRMIdjafoLrf4UItF3LV_iVc7tMhEz8_trEbliy1oUSN3rimD3Q
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2OTY3NTcyLCJleHAiOjE3NTcwNTM5NzJ9.E_P04Cw6CaoDklT2fw-KMQv0JpL4a48iOu1TtCn_KdjWJs2vnhW1JT_KDNZ1uQ2V6-v_OSJ_ouIiy8NQhUvRsQ
   id: C287mXhnEP
 - enabled: true
   name: ''
   value: ''
-  id: DuIP3C3heA
+  id: xnUmZGuQT8
 method: GET
 name: Available Vehicle
 sortPriority: -1756800127694.0
