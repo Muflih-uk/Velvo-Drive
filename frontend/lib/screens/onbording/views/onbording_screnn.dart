@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/components/dot_indicators.dart';
 import 'package:shop/constants.dart';
-import 'package:shop/route/route_constants.dart';
+import 'package:shop/main.dart';
 
 import 'components/onbording_content.dart';
 
@@ -14,6 +15,19 @@ class OnBordingScreen extends StatefulWidget {
 }
 
 class _OnBordingScreenState extends State<OnBordingScreen> {
+
+  Future<void> _completeOnboarding(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasSeenOnboarding', true);
+    if (context.mounted) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const AuthWrapper()),
+      );
+    }
+  }
+
+
+
   late PageController _pageController;
   int _pageIndex = 0;
   final List<Onbord> _onbordData = [
@@ -76,9 +90,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, logInScreenRoute);
-                  },
+                  onPressed: () => _completeOnboarding(context),
                   child: Text(
                     "Skip",
                     style: TextStyle(
@@ -125,7 +137,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                           _pageController.nextPage(
                               curve: Curves.ease, duration: defaultDuration);
                         } else {
-                          Navigator.pushNamed(context, logInScreenRoute);
+                          _completeOnboarding(context);
                         }
                       },
                       style: ElevatedButton.styleFrom(
