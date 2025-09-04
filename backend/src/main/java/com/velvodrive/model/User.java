@@ -20,6 +20,10 @@ public class User{
     @JsonIgnore
     private String password;
 
+    private String photo;      // URL to the user's profile picture
+    private String aboutYou;   // A short bio or description
+    private String number;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_bookmarks",
