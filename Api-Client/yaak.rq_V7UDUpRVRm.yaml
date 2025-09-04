@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_V7UDUpRVRm
 createdAt: 2025-09-02T08:05:56.645760634
-updatedAt: 2025-09-04T12:40:39.299266750
+updatedAt: 2025-09-04T13:12:49.305934342
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -11,7 +11,7 @@ body:
   text: |-
     {
       "username": "testuse",
-      "password": "test123"
+      "password": "password123"
     }
 bodyType: application/json
 description: ''

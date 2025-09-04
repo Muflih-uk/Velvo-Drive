@@ -1,0 +1,38 @@
+type: http_request
+model: http_request
+id: rq_4E754reCzV
+createdAt: 2025-09-04T13:14:15.191539285
+updatedAt: 2025-09-04T13:32:07.363106748
+workspaceId: wk_6NG3LvfCZM
+folderId: null
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "photo": "https://your-storage-service.com/path/to/profile.jpg",
+      "username": "john_doe_new",
+      "aboutYou": "Car enthusiast and friendly host.",
+      "number": "+919876543210",
+      "email": "john.doe.new@example.com"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Authorization
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2OTkxNTc2LCJleHAiOjE3NTcwNzc5NzZ9.JS62XiJ_h4MRF9W56yK0C2Okw832DJmxtBHQbHBmuyHl63IZQUCw7ZrBb7BVb1nucbfn2rtt2E1kOO05YaXBWA
+  id: ckmea6t6J5
+- enabled: true
+  name: ''
+  value: ''
+  id: TrecAAeZ8x
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: hQ0xNSYPZF
+method: PUT
+name: Update User
+sortPriority: -1756800127693.999
+url: https://velvo-drive.onrender.com/api/users/me
+urlParameters: []
