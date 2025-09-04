@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/entry_point.dart';
 import 'package:shop/provider/auth_provider.dart';
 import 'package:shop/provider/bottom_nav_provider.dart';
 import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/router.dart' as router;
 import 'package:shop/screens/auth/views/login_screen.dart';
-import 'package:shop/screens/home/views/home_screen.dart';
 import 'package:shop/screens/onbording/views/onbording_screnn.dart';
 import 'package:shop/theme/app_theme.dart';
 
@@ -78,7 +78,7 @@ class AuthWrapper extends StatelessWidget {
     }
 
     if (authProvider.isAuthenticated) {
-      return const HomeScreen();
+      return const EntryPoint();
     } else {
       return const LoginScreen();
     }

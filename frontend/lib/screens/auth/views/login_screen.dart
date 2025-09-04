@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     "Log in with your data that you intered during your registration.",
                   ),
                   const SizedBox(height: defaultPadding),
-                  LogInForm(formKey: _formKey),
+                  LoginForm(formKey: _formKey),
                   Align(
                     child: TextButton(
                       child: const Text("Forgot password"),

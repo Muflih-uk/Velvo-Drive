@@ -1,3 +1,5 @@
+
+
 import 'package:dio/dio.dart';
 
 class AuthService {
@@ -6,7 +8,7 @@ class AuthService {
     BaseOptions(baseUrl: "https://velvo-drive.onrender.com/api/")
   );
 
-  Future<Map<String, dynamic>> register(
+  Future<String> register(
     String username,
     String email,
     String password
@@ -20,17 +22,18 @@ class AuthService {
           'password': password
         }
       );
-      return response.data;
+      return response.data.toString();
     } on DioException catch (e) {
       _handleError(e);
       rethrow;
     }
   }
 
-  Future<Map<String, dynamic>> login(String email, String password) async {
+  Future<String> login(String username, String password) async {
     try {
-      final response = await _dio.post('auth/login', data: {
-        'email': email,
+      final response = await _dio.post('auth/login', 
+      data: {
+        'username': username,
         'password': password,
       });
       return response.data;

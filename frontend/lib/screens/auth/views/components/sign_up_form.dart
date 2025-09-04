@@ -1,29 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:shop/provider/auth_provider.dart';
+import 'package:shop/route/route_constants.dart';
 
 import '../../../../constants.dart';
 
-class SignUpForm extends StatelessWidget {
+class SignUpForm extends StatefulWidget{
   const SignUpForm({
     super.key,
     required this.formKey,
   });
-
   final GlobalKey<FormState> formKey;
+  @override
+  State<SignUpForm> createState() => _StateSignUpForm(); 
+}
+
+
+class _StateSignUpForm extends State<SignUpForm> {
+  
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _register(BuildContext context) async {
+    if (widget.formKey.currentState!.validate()){
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final success = await authProvider.register(
+        _usernameController.text.trim(),
+        _emailController.text.trim(),
+        _passwordController.text.trim(),
+      );
+      if (success) {
+        Navigator.pushNamed(context, logInScreenRoute);
+      } else if (!success) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(authProvider.error ?? 'Registration Failed')),
+        );
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: widget.formKey,
       child: Column(
         children: [
           TextFormField(
-            onSaved: (emal) {
-              // Email
-            },
-            validator: emaildValidator.call,
+            controller: _usernameController,
             textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
               hintText: "Username",
               prefixIcon: Padding(
@@ -47,9 +84,7 @@ class SignUpForm extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding),
           TextFormField(
-            onSaved: (emal) {
-              // Email
-            },
+            controller: _emailController,
             validator: emaildValidator.call,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -76,9 +111,7 @@ class SignUpForm extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding),
           TextFormField(
-            onSaved: (pass) {
-              // Password
-            },
+            controller: _passwordController,
             validator: passwordValidator.call,
             obscureText: true,
             decoration: InputDecoration(
@@ -101,6 +134,12 @@ class SignUpForm extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          const SizedBox(height: defaultPadding),
+          Consumer<AuthProvider>(
+            builder: (context, auth, child) => auth.isLoading
+              ? const CircularProgressIndicator()
+              : ElevatedButton(onPressed: () => _register(context), child: const Text('Continue')),
           ),
         ],
       ),

@@ -5,29 +5,36 @@ import 'package:shop/provider/auth_provider.dart';
 import 'package:shop/route/route_constants.dart';
 import '../../../../constants.dart';
 
-class LogInForm extends StatelessWidget {
-  LogInForm({
+
+class LoginForm extends StatefulWidget{
+  const LoginForm({
     super.key,
     required this.formKey,
   });
 
   final GlobalKey<FormState> formKey;
 
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  @override
+  State<LoginForm> createState() => _StateLogInForm();
+}
+
+class _StateLogInForm extends State<LoginForm> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   void _login(BuildContext context) async {
-    if (formKey.currentState!.validate()) {
-      Navigator.pushNamedAndRemoveUntil(
-          context,
-          entryPointScreenRoute,
-          ModalRoute.withName(logInScreenRoute));
+    FocusScope.of(context).unfocus();
+
+    if (widget.formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final success = await authProvider.login(
-        _emailController.text,
-        _passwordController.text,
+        _usernameController.text.trim(),
+        _passwordController.text.trim(),
       );
-      if (!success) {
+      if (success) {
+        Navigator.pushNamed(context, entryPointScreenRoute);
+
+      } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(authProvider.error ?? 'Login Failed')),
         );
@@ -36,24 +43,30 @@ class LogInForm extends StatelessWidget {
   }
 
   @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Form(
-      key: formKey,
+      key: widget.formKey,
       child: Column(
         children: [
           TextFormField(
-            controller: _emailController,
-            validator: emaildValidator.call,
+            controller: _usernameController,
             textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.name,
             decoration: InputDecoration(
-              hintText: "Email address",
+              hintText: "Username",
               prefixIcon: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
                 child: SvgPicture.asset(
-                  "assets/icons/Message.svg",
+                  "assets/icons/Emoji.svg",
                   height: 24,
                   width: 24,
                   colorFilter: ColorFilter.mode(

@@ -25,15 +25,14 @@ class AuthProvider with ChangeNotifier{
     notifyListeners();
   }
 
-  Future<bool> login(String email, String password) async {
+  Future<bool> login(String username, String password) async {
     _isLoading = true;
     _error = null;
     notifyListeners();
     try {
-      final response = await _authService.login(email, password);
-      _token = response['token'];
+      final response = await _authService.login(username, password);
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('token', _token!);
+      await prefs.setString('token', response);
       _isLoading = false;
       notifyListeners();
       return true;
@@ -46,12 +45,14 @@ class AuthProvider with ChangeNotifier{
   }
 
   Future<bool> register(String username, String email, String password) async {
-     _isLoading = true;
+    _isLoading = true;
     _error = null;
     notifyListeners();
      try {
        await _authService.register(username, email, password);
-       return await login(email, password);
+       _isLoading = false;
+       notifyListeners();
+       return true;
      } catch(e) {
        _error = e.toString();
        _isLoading = false;
