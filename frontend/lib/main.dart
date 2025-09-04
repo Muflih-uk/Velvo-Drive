@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/controllers/data_controller.dart';
 import 'package:shop/entry_point.dart';
 import 'package:shop/provider/auth_provider.dart';
 import 'package:shop/provider/bottom_nav_provider.dart';
@@ -14,7 +15,7 @@ void main() {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => BottomNavProvider()),
-        ChangeNotifierProvider(create: (_) => DataProvider()),
+        ChangeNotifierProvider(create: (_) => DataProvider(DataController())),
         ChangeNotifierProvider(create: (_) => AuthProvider())
       ],
       child: const MyApp(),

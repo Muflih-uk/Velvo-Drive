@@ -18,7 +18,6 @@ export '/screens/notification/view/enable_notification_screen.dart';
 export '/screens/notification/view/no_notification_screen.dart';
 export '/screens/notification/view/notification_ontions_screen.dart';
 export '/screens/notification/view/notificatios_screen.dart';
-export '/screens/order/views/orders_screen.dart';
 export '/screens/preferences/views/preferences_screen.dart';
 export '/screens/wallet/views/empty_wallet_screen.dart';
 export '/screens/wallet/views/wallet_screen.dart';

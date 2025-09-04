@@ -60,19 +60,24 @@ class _StateDiscoverScreen extends State<DiscoverScreen>{
                       onRefresh: () => provider.fetchData(),
                       child: GridView.count(
                         crossAxisCount: 2,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        mainAxisSpacing: defaultPadding,
+                        crossAxisSpacing: defaultPadding,
+                        childAspectRatio: 0.7, 
                         children: List.generate(
                           provider.data.length,
-                          (index){
+                          (index) {
                             return ProductCard(
-                              image: provider.data[index]["main_photo"], 
-                              brandName: provider.data[index]["name"], 
-                              title: provider.data[index]["model"], 
-                              price: provider.data[index]["pricePerDay"], 
-                              press: (){}
+                              image: provider.data[index]["main_photo"],
+                              brandName: provider.data[index]["name"],
+                              title: provider.data[index]["model"],
+                              price: provider.data[index]["pricePerDay"],
+                              press: () {}
                             );
                           }
                         ),
-                      ) 
+                      ),
                     );
                   }
                 ),

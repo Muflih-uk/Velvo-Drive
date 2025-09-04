@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:intl/intl.dart';
+import 'package:shop/controllers/main_controller.dart';
 
 import '../models/vehicle_model.dart';
 
@@ -145,7 +146,7 @@ class VehicleController with ChangeNotifier {
       );
 
       const String apiUrl = 'https://velvo-drive.onrender.com/api/vehicles/add';
-      const String authToken = 'YOUR_BEARER_TOKEN_HERE'; 
+      const String authToken = '';
 
       final response = await _dio.post(
         apiUrl,
