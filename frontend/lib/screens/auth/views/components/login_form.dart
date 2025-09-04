@@ -1,26 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:provider/provider.dart';
+import 'package:shop/provider/auth_provider.dart';
+import 'package:shop/route/route_constants.dart';
 import '../../../../constants.dart';
 
 class LogInForm extends StatelessWidget {
-  const LogInForm({
+  LogInForm({
     super.key,
     required this.formKey,
   });
 
   final GlobalKey<FormState> formKey;
 
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  void _login(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      Navigator.pushNamedAndRemoveUntil(
+          context,
+          entryPointScreenRoute,
+          ModalRoute.withName(logInScreenRoute));
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final success = await authProvider.login(
+        _emailController.text,
+        _passwordController.text,
+      );
+      if (!success) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(authProvider.error ?? 'Login Failed')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Form(
       key: formKey,
       child: Column(
         children: [
           TextFormField(
-            onSaved: (emal) {
-              // Email
-            },
+            controller: _emailController,
             validator: emaildValidator.call,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -46,9 +69,7 @@ class LogInForm extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding),
           TextFormField(
-            onSaved: (pass) {
-              // Password
-            },
+            controller: _passwordController,
             validator: passwordValidator.call,
             obscureText: true,
             decoration: InputDecoration(
@@ -70,6 +91,16 @@ class LogInForm extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: size.height > 700
+                ? size.height * 0.1
+                : defaultPadding,
+          ),
+          Consumer<AuthProvider>(
+            builder: (context, auth, child) => auth.isLoading
+              ? const CircularProgressIndicator()
+              : ElevatedButton(onPressed: () => _login(context), child: const Text('Login')),
           ),
         ],
       ),
