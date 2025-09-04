@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop/components/list_tile/divider_list_tile.dart';
-import 'package:shop/components/network_image_with_loader.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/route/screen_export.dart';
 
@@ -27,19 +26,6 @@ class ProfileScreen extends StatelessWidget {
             },
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding * 1.5),
-            child: GestureDetector(
-              onTap: () {},
-              child: const AspectRatio(
-                aspectRatio: 1.8,
-                child:
-                    NetworkImageWithLoader("https://i.imgur.com/dz0BBom.png"),
-              ),
-            ),
-          ),
-
-          Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
               "Account",
@@ -48,42 +34,9 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding / 2),
           ProfileMenuListTile(
-            text: "Orders",
-            svgSrc: "assets/icons/Order.svg",
-            press: () {
-              Navigator.pushNamed(context, ordersScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Returns",
-            svgSrc: "assets/icons/Return.svg",
-            press: () {},
-          ),
-          ProfileMenuListTile(
             text: "Wishlist",
-            svgSrc: "assets/icons/Wishlist.svg",
+            svgSrc: "assets/icons/Category.svg",
             press: () {},
-          ),
-          ProfileMenuListTile(
-            text: "Addresses",
-            svgSrc: "assets/icons/Address.svg",
-            press: () {
-              Navigator.pushNamed(context, addressesScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Payment",
-            svgSrc: "assets/icons/card.svg",
-            press: () {
-              Navigator.pushNamed(context, emptyPaymentScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Wallet",
-            svgSrc: "assets/icons/Wallet.svg",
-            press: () {
-              Navigator.pushNamed(context, walletScreenRoute);
-            },
           ),
           const SizedBox(height: defaultPadding),
           Padding(
