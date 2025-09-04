@@ -103,7 +103,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   );
     case discoverScreenRoute:
       return MaterialPageRoute(
-        builder: (context) => const DiscoverScreen(),
+        builder: (context) => DiscoverScreen(),
       );
     case searchScreenRoute:
       return MaterialPageRoute(
