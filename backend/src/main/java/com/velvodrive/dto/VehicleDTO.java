@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class VehicleDTO {
-    private Long ownerId;
     private String name;
     private String description;
     private String model;

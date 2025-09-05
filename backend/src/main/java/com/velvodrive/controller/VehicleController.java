@@ -22,9 +22,11 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addVehicle(@RequestBody VehicleDTO vehicleDto){
+    public ResponseEntity<?> addVehicle(@RequestBody VehicleDTO vehicleDto,
+                                        @AuthenticationPrincipal UserDetails userDetails){
         try{
-            Vehicle newVehicle = vehicleService.addVehicle(vehicleDto);
+            String ownerUsername = userDetails.getUsername();
+            Vehicle newVehicle = vehicleService.addVehicle(vehicleDto, ownerUsername);
             return new ResponseEntity<>(newVehicle, HttpStatus.CREATED);
         } catch (RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());

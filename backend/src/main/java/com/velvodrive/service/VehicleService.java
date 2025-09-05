@@ -28,9 +28,10 @@ public class VehicleService {
     private RentalRepository rentalRepository;
 
     @Transactional
-    public Vehicle addVehicle(VehicleDTO vehicleDTO){
-        User owner = userRepository.findById(vehicleDTO.getOwnerId())
-                .orElseThrow( () ->new RuntimeException("Owner Not Found") );
+    public Vehicle addVehicle(VehicleDTO vehicleDTO, String ownerUsername){
+        User owner = userRepository.findByUsername(ownerUsername)
+                .orElseThrow(() -> new RuntimeException("Authenticated user not found: " + ownerUsername));
+
 
         Vehicle newVehicle = new Vehicle();
         newVehicle.setOwner(owner);
