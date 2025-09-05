@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_4E754reCzV
 createdAt: 2025-09-04T13:14:15.191539285
-updatedAt: 2025-09-05T09:28:14.813696268
+updatedAt: 2025-09-05T15:51:53.051660861
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -33,6 +33,6 @@ headers:
   id: hQ0xNSYPZF
 method: PUT
 name: Update User
-sortPriority: 11000.0
+sortPriority: 1500.0
 url: https://velvo-drive.onrender.com/api/users/me
 urlParameters: []

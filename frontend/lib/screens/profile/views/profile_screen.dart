@@ -56,7 +56,7 @@ class _StateProfileScreen extends State<ProfileScreen>{
                 ProfileCard(
                   name: provider.user["username"],
                   email: provider.user["email"],
-                  imageSrc: provider.user["photo"] == null ? "https://cdn-icons-png.flaticon.com/128/149/149071.png" : provider.user["photo"],
+                  imageSrc: provider.user["photo"] == '' ? "https://cdn-icons-png.flaticon.com/128/149/149071.png" : provider.user["photo"],
                   // proLableText: "Sliver",
                   // isPro: true, if the user is pro
                   press: () {

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constants.dart';
+import 'package:shop/provider/data_provider.dart';
 import 'package:shop/provider/profile_provider.dart';
 import "../../../controllers/vehicle_controller.dart";
 
@@ -67,6 +68,7 @@ class _StateUserForm extends State<UserForm> {
   Widget build(BuildContext context) {
     // Use context.watch in the build method to listen for changes.
     final controller = context.watch<ProfileProvider>();
+    final dataProvider = Provider.of<DataProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -75,7 +77,10 @@ class _StateUserForm extends State<UserForm> {
         actions: [
           if (controller.isEditing)
             TextButton(
-              onPressed: () => _submitForm(),
+              onPressed: () {
+                context.read<ProfileProvider>().toggleEditMode();
+                _submitForm();
+              },
               child: const Text("Save"),
             )
           else
@@ -96,30 +101,31 @@ class _StateUserForm extends State<UserForm> {
                   padding: const EdgeInsets.all(25.0),
                   children: [
                     _buildImagePicker(
+                      image: dataProvider.user["photo"],
                       context: context,
                       slot: ImageSlot.profileImage,
-                      label: 'Main Photo*',
+                      label: 'Profile Photo',
                       enabled: controller.isEditing, // Use state from controller
                     ),
                     const SizedBox(height: 16),
                     _buildTextFormField(
                       context: context,
                       controller: _nameController,
-                      label: 'Name',
+                      label: !controller.isEditing ? dataProvider.user['username'] : 'name',
                       icon: 'Profile',
                       enabled: controller.isEditing, // Use state from controller
                     ),
                     _buildTextFormField(
                       context: context,
                       controller: _aboutController,
-                      label: 'Something about you',
+                      label: !controller.isEditing ? dataProvider.user['aboutYou'] : 'Something about you',
                       icon: 'Order',
                       enabled: controller.isEditing,
                     ),
                     _buildTextFormField(
                       context: context,
                       controller: _phoneController,
-                      label: 'Phone Number',
+                      label: !controller.isEditing ? dataProvider.user['number'] : 'Phone Number',
                       icon: "Call",
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -128,7 +134,7 @@ class _StateUserForm extends State<UserForm> {
                     _buildTextFormField(
                       context: context,
                       controller: _emailController,
-                      label: 'Email',
+                      label: !controller.isEditing ? dataProvider.user['email'] : 'Email',
                       icon: "Message",
                       keyboardType: TextInputType.emailAddress,
                       enabled: controller.isEditing,
@@ -206,6 +212,7 @@ class _StateUserForm extends State<UserForm> {
   }
 
   Widget _buildImagePicker({
+    String? image,
     required BuildContext context,
     required ImageSlot slot,
     required String label,
@@ -234,7 +241,7 @@ class _StateUserForm extends State<UserForm> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
                       child: SvgPicture.asset(
-                        "assets/icons/Camera-add.svg",
+                        image ?? "assets/icons/Camera-add.svg",
                         height: 24,
                         width: 24,
                         colorFilter: ColorFilter.mode(
