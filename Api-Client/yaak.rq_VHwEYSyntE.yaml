@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_VHwEYSyntE
 createdAt: 2025-09-02T08:15:40.410548568
-updatedAt: 2025-09-02T10:20:52.084350439
+updatedAt: 2025-09-05T09:28:14.740825623
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -21,6 +21,6 @@ headers:
   id: DcjTQvbTui
 method: GET
 name: BestSeller Vehicle
-sortPriority: -1756800127694.0
+sortPriority: 0.0
 url: https://velvo-drive.onrender.com/api/featured/bestsellers
 urlParameters: []

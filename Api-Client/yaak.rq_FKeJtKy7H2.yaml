@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_FKeJtKy7H2
 createdAt: 2025-09-02T08:02:07.697743776
-updatedAt: 2025-09-02T10:16:25.817755553
+updatedAt: 2025-09-05T09:29:08.478606338
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -23,6 +23,6 @@ headers:
   id: WqmBufaDQ3
 method: POST
 name: Register
-sortPriority: -1756800127694.0
+sortPriority: 937.5
 url: https://velvo-drive.onrender.com/api/auth/register
 urlParameters: []

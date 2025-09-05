@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_UBYErDNxmN
 createdAt: 2025-09-04T13:13:02.082628538
-updatedAt: 2025-09-05T05:44:48.092437478
+updatedAt: 2025-09-05T09:28:14.767166738
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -18,9 +18,9 @@ headers:
 - enabled: true
   name: ''
   value: ''
-  id: e0e4nY5jGC
+  id: GUSTrs7E6U
 method: GET
 name: GET User Details
-sortPriority: -1756800127694.0
+sortPriority: 1000.0
 url: https://velvo-drive.onrender.com/api/users/me
 urlParameters: []

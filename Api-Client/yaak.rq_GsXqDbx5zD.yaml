@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_GsXqDbx5zD
 createdAt: 2025-09-02T08:13:11.859651954
-updatedAt: 2025-09-04T15:05:39.269904905
+updatedAt: 2025-09-05T09:28:30.066454594
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,14 +13,14 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1Njk5ODMxMCwiZXhwIjoxNzU3MDg0NzEwfQ.hqkl8ayJJ-kMWTU7Q71FvvzeN9ruZHersfPgZgn-WrDzuMP6kFSnsV32EsMzquei3BHbQWxCTFXBkePSXDYoZg
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NzA1MjM4NSwiZXhwIjoxNzU3MTM4Nzg1fQ.K0qfVtIGET1nTztA6epNTQkCspU1fFsJDT957u_MbsL9XjpDitaKKCS2mfMkfki3bc9TwBwt_O8siDhuIo3Bpw
   id: C287mXhnEP
 - enabled: true
   name: ''
   value: ''
-  id: pKzX2JijuG
+  id: uqIv2WU5eM
 method: GET
 name: Available Vehicle
-sortPriority: -1756800127694.0
+sortPriority: 500.0
 url: https://velvo-drive.onrender.com/api/vehicles/available
 urlParameters: []

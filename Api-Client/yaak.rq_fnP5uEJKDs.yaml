@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_fnP5uEJKDs
 createdAt: 2025-09-02T09:09:38.889542609
-updatedAt: 2025-09-02T10:05:35.168259619
+updatedAt: 2025-09-05T09:28:14.771908686
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,14 +13,14 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwNTU1NCwiZXhwIjoxNzU2ODkxOTU0fQ.Nnzj2mbZ1kBWq8II2DNpYEiZNu-p5kRaEpYqXMoHvZx8_EWPQ3IrkFwSiNuyZtygv2c791C4-a-MlU_EjdczAA
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NzA1MjM4NSwiZXhwIjoxNzU3MTM4Nzg1fQ.K0qfVtIGET1nTztA6epNTQkCspU1fFsJDT957u_MbsL9XjpDitaKKCS2mfMkfki3bc9TwBwt_O8siDhuIo3Bpw
   id: SbB4jih9Ek
 - enabled: true
   name: ''
   value: ''
-  id: VGT0jbZPDh
+  id: zvES77THdA
 method: DELETE
 name: Delete Vehicle
-sortPriority: -1756800127694.0
-url: https://velvo-drive.onrender.com/api/vehicles/1
+sortPriority: 2000.0
+url: https://velvo-drive.onrender.com/api/vehicles/5
 urlParameters: []

@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_N4cNSje9wZ
 createdAt: 2025-09-04T13:17:16.558923183
-updatedAt: 2025-09-05T05:47:12.259405577
+updatedAt: 2025-09-05T09:28:14.827924814
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,14 +13,14 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NzA1MDk1MCwiZXhwIjoxNzU3MTM3MzUwfQ.KnvzDIzLdyJDb_-AfiDPzuIyiJ43LtkO1nF6h8Uz2V2yBuv9ITUP0G9k4d0tgx7KAe6gBCq7EBYTv3bd3Om75Q
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NzA1MjMyOSwiZXhwIjoxNzU3MTM4NzI5fQ.g7zxAaQAVlwVol7EIh5z1LfaMP-1y8aA4noncJyeX_cR9c1x0Ds9NHAmfyXh_ADCucFkhiAmStnwKNkfkfGu_Q
   id: ckmea6t6J5
 - enabled: true
   name: ''
   value: ''
-  id: RMt95R0T08
+  id: f7yztaCeMh
 method: GET
 name: Show BookMark
-sortPriority: -1756800127693.995
+sortPriority: 15000.0
 url: https://velvo-drive.onrender.com/api/users/me/bookmarks
 urlParameters: []

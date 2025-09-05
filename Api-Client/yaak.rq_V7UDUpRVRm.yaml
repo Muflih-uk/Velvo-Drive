@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_V7UDUpRVRm
 createdAt: 2025-09-02T08:05:56.645760634
-updatedAt: 2025-09-05T05:42:28.492808922
+updatedAt: 2025-09-05T09:28:59.935485709
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -10,8 +10,8 @@ authenticationType: null
 body:
   text: |-
     {
-      "username": "admin",
-      "password": "admin123#"
+      "username": "testuser",
+      "password": "password123"
     }
 bodyType: application/json
 description: ''
@@ -22,6 +22,6 @@ headers:
   id: QRpA5eVIeM
 method: POST
 name: Login
-sortPriority: -1756800127694.0
+sortPriority: 875.0
 url: https://velvo-drive.onrender.com/api/auth/login
 urlParameters: []

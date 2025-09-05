@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_W5e6v798iB
 createdAt: 2025-09-02T08:07:14.493912824
-updatedAt: 2025-09-05T05:43:49.351537317
+updatedAt: 2025-09-05T09:28:39.147405121
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -11,15 +11,15 @@ body:
   text: |-
     {
       "ownerId": 1,
-      "name": "Honda Activa",
+      "name": "Mahindra",
       "description": "Reliable and fuel-efficient scooter, perfect for city commutes ",
-      "model": "Activa 6G - 2026",
-      "pricePerDay": 45.0,
+      "model": "Jeep",
+      "pricePerDay": 4500.0,
       "main_photo": "https://your-storage-url.com/activa1.jpg",
       "second_photo": "https://your-storage-url.com/activa2.jpg",
       "third_photo": "",
-      "ownerPhoneNumber": "+918998887776",
-      "createdAt": "2025-09-02T07:10:00Z"
+      "ownerPhoneNumber": "+91898887776",
+      "createdAt": "2025-09-01T07:10:00Z"
     }
 bodyType: application/json
 description: ''
@@ -35,9 +35,9 @@ headers:
 - enabled: true
   name: ''
   value: ''
-  id: yu5B04xRFz
+  id: A0CHXUbHSX
 method: POST
 name: Add Vehicle
-sortPriority: -1756800127694.0
+sortPriority: 750.0
 url: https://velvo-drive.onrender.com/api/vehicles/add
 urlParameters: []
