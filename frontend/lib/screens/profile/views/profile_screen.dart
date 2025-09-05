@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/components/list_tile/divider_list_tile.dart';
 import 'package:shop/constants.dart';
+import 'package:shop/provider/auth_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
 import 'components/profile_card.dart';
@@ -108,21 +110,27 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(height: defaultPadding),
 
           // Log Out
-          ListTile(
-            onTap: () {},
-            minLeadingWidth: 24,
-            leading: SvgPicture.asset(
-              "assets/icons/Logout.svg",
-              height: 24,
-              width: 24,
-              colorFilter: const ColorFilter.mode(
-                errorColor,
-                BlendMode.srcIn,
+          Consumer<AuthProvider>(
+            builder: (ctx, auth, child) => auth.isLoading
+            ? const CircularProgressIndicator()
+            : ListTile(
+              onTap: () {
+                auth.logout();
+              },
+              minLeadingWidth: 24,
+              leading: SvgPicture.asset(
+                "assets/icons/Logout.svg",
+                height: 24,
+                width: 24,
+                colorFilter: const ColorFilter.mode(
+                  errorColor,
+                  BlendMode.srcIn,
+                ),
               ),
-            ),
-            title: const Text(
-              "Log Out",
-              style: TextStyle(color: errorColor, fontSize: 14, height: 1),
+              title: const Text(
+                "Log Out",
+                style: TextStyle(color: errorColor, fontSize: 14, height: 1),
+              ),
             ),
           )
         ],

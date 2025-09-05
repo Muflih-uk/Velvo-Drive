@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/components/product/product_card.dart';
+import 'package:shop/components/product/secondary_product_card.dart';
 import 'package:shop/components/skleton/product/products_skelton.dart';
 import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/screen_export.dart';
@@ -71,7 +71,7 @@ class _StateMostPopular extends State<MostPopular>{
                           ? defaultPadding
                           : 0,
                     ),
-                    child: ProductCard(
+                    child: SecondaryProductCard(
                       image:  provider.data[index]["main_photo"],
                       brandName: provider.data[index]["name"],
                       title: provider.data[index]["model"],

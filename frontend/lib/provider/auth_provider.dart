@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/services/api_service.dart';
 import 'package:shop/services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier{
+
+  final ApiService _apiService = ApiService();
   final AuthService _authService = AuthService();
 
   String? _token;
@@ -33,6 +36,7 @@ class AuthProvider with ChangeNotifier{
       final response = await _authService.login(username, password);
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', response);
+       _token = response;
       _isLoading = false;
       notifyListeners();
       return true;
@@ -62,9 +66,20 @@ class AuthProvider with ChangeNotifier{
   }
 
   Future<void> logout() async {
-    _token = null;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('token');
+    _isLoading = true;
+    _error = null;
     notifyListeners();
+    try{
+      await _apiService.dio.post('auth/logout');
+      _isLoading = false;
+      _token = null;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('token');
+      notifyListeners();
+    } catch(e){
+      _error = e.toString();
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }
