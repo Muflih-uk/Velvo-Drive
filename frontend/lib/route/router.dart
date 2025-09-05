@@ -115,7 +115,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   );
     case bookmarkScreenRoute:
       return MaterialPageRoute(
-        builder: (context) => const BookmarkScreen(),
+        builder: (context) => BookmarkScreen(),
       );
     case entryPointScreenRoute:
       return MaterialPageRoute(

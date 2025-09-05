@@ -16,7 +16,7 @@ class _StateDiscoverScreen extends State<DiscoverScreen>{
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<DataProvider>(context, listen: false).fetchData();
+      Provider.of<DataProvider>(context, listen: false).fetchVehicle();
     });
   }
 
@@ -57,7 +57,7 @@ class _StateDiscoverScreen extends State<DiscoverScreen>{
                       return const Center(child: Text('No vehicles found.'));
                     }
                     return RefreshIndicator(
-                      onRefresh: () => provider.fetchData(),
+                      onRefresh: () => provider.fetchVehicle(),
                       child: GridView.count(
                         crossAxisCount: 2,
                         shrinkWrap: true,
