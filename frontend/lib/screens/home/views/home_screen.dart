@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             const SliverToBoxAdapter(child: OffersCarouselAndCategories()),
-            const SliverToBoxAdapter(child: PopularProducts()),
+            SliverToBoxAdapter(child: PopularProducts()),
             const SliverPadding(
               padding: EdgeInsets.symmetric(vertical: defaultPadding * 1.5),
               sliver: SliverToBoxAdapter(child: FlashSale()),
@@ -40,8 +40,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(child: BestSellers()),
-            const SliverToBoxAdapter(child: MostPopular()),
+            SliverToBoxAdapter(child: BestSellers()),
+            SliverToBoxAdapter(child: MostPopular()),
             SliverToBoxAdapter(
               child: Column(
                 children: [
@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(child: BestSellers()),
+            SliverToBoxAdapter(child: BestSellers()),
           ],
         ),
       ),

@@ -3,7 +3,6 @@ import 'dart:convert';
 String vehicleToJson(Vehicle data) => json.encode(data.toJson());
 
 class Vehicle {
-    final int ownerId;
     final String name;
     final String description;
     final String model;
@@ -15,7 +14,6 @@ class Vehicle {
     final String createdAt;
 
     Vehicle({
-        required this.ownerId,
         required this.name,
         required this.description,
         required this.model,
@@ -28,7 +26,6 @@ class Vehicle {
     });
 
     Map<String, dynamic> toJson() => {
-        "ownerId": ownerId,
         "name": name,
         "description": description,
         "model": model,

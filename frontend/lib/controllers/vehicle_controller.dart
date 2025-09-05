@@ -138,7 +138,6 @@ class VehicleController with ChangeNotifier {
       }
 
       final vehicle = Vehicle(
-        ownerId: 1,
         name: formData['name']!,
         description: formData['description']!,
         model: formData['model']!,
