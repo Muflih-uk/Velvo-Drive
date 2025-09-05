@@ -8,7 +8,7 @@ import 'package:shop/services/api_service.dart';
 
 import '../models/vehicle_model.dart';
 
-enum ImageSlot { main, second, third }
+enum ImageSlot { main, second, third, profileImage }
 
 class VehicleController with ChangeNotifier {
   bool _isLoading = false;
@@ -22,6 +22,9 @@ class VehicleController with ChangeNotifier {
 
   File? _thirdImage;
   File? get thirdImage => _thirdImage;
+
+  File? _profileImage;
+  File? get profileImage => _profileImage;
 
   final ImagePicker _picker = ImagePicker();
   final ImageCropper _cropper = ImageCropper();
@@ -72,6 +75,8 @@ class VehicleController with ChangeNotifier {
 
       if (croppedFile != null) {
         switch (slot) {
+          case ImageSlot.profileImage:
+            _profileImage = File(croppedFile.path);
           case ImageSlot.main:
             _mainImage = File(croppedFile.path);
             break;
@@ -170,6 +175,40 @@ class VehicleController with ChangeNotifier {
     } finally {
       _setLoading(false);
     }
+  }
+
+  void submitUserData({
+    required Map<String, String> formData,
+    required BuildContext context,
+  }) async{
+    try {
+      final String profilePhotoUrl = await _uploadImageToCloudinary(_profileImage!);
+      await _apiService.dio.put(
+        'users/me',
+        data: {
+          "photo": profilePhotoUrl,
+          "username": formData['username'],
+          "aboutYou": formData['aboutYou'],
+          "number": formData["number"],
+          "email": formData["email"]
+        }
+      );
+      _showSnackBar(context, 'Profile Updated');
+
+    } on DioException catch (e) {
+      String errorMessage = 'API Error: Failed to add vehicle.';
+      if (e.response != null) {
+        errorMessage = 'API Error [${e.response?.statusCode}]: ${e.response?.data['message'] ?? e.response?.data}';
+      } else {
+        errorMessage = 'Network Error: Please check your connection.';
+      }
+       _showSnackBar(context, errorMessage, isError: true);
+    } catch (e) {
+      _showSnackBar(context, 'An unexpected error occurred: $e', isError: true);
+    } finally {
+      _setLoading(false);
+    }
+
   }
 
   void _setLoading(bool value) {
