@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:intl/intl.dart';
-import 'package:shop/controllers/main_controller.dart';
+import 'package:shop/services/api_service.dart';
 
 import '../models/vehicle_model.dart';
 
@@ -25,6 +25,7 @@ class VehicleController with ChangeNotifier {
 
   final ImagePicker _picker = ImagePicker();
   final ImageCropper _cropper = ImageCropper();
+  final ApiService _apiService = ApiService();
   final Dio _dio = Dio(); 
 
   Future<void> showImageSourceOptions(BuildContext context, ImageSlot slot) async {
@@ -37,17 +38,21 @@ class VehicleController with ChangeNotifier {
               ListTile(
                 leading: const Icon(Icons.photo_library),
                 title: const Text('Pick from Gallery'),
-                onTap: () {
-                  _pickAndCropImage(ImageSource.gallery, slot);
-                  Navigator.of(builderContext).pop(); // Close the bottom sheet
+                onTap: () async { 
+                  await _pickAndCropImage(ImageSource.gallery, slot); 
+                  if (builderContext.mounted) { 
+                    Navigator.of(builderContext).pop();
+                  }
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.camera_alt),
                 title: const Text('Take a Picture'),
-                onTap: () {
-                  _pickAndCropImage(ImageSource.camera, slot);
-                   Navigator.of(builderContext).pop(); // Close the bottom sheet
+                onTap: () async { 
+                  await _pickAndCropImage(ImageSource.camera, slot); 
+                  if (builderContext.mounted) { 
+                    Navigator.of(builderContext).pop();
+                  }
                 },
               ),
             ],
@@ -145,18 +150,10 @@ class VehicleController with ChangeNotifier {
         createdAt: DateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(DateTime.now().toUtc()),
       );
 
-      const String apiUrl = 'https://velvo-drive.onrender.com/api/vehicles/add';
-      const String authToken = '';
 
-      final response = await _dio.post(
-        apiUrl,
-        data: vehicle.toJson(), 
-        options: Options(
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Authorization': 'Bearer $authToken',
-          },
-        ),
+      await _apiService.dio.post(
+        'vehicles/add',
+        data: vehicle.toJson()
       );
       
       _showSnackBar(context, 'Vehicle added successfully!');
