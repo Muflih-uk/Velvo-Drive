@@ -17,7 +17,7 @@ class _EntryPointState extends State<EntryPoint> {
   final List _pages = [
     const HomeScreen(),
     DiscoverScreen(),
-    const BookmarkScreen(), 
+    BookmarkScreen(), 
     const ProfileScreen(),
   ];
 

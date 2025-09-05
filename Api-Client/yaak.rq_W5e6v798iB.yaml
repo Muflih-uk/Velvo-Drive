@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_W5e6v798iB
 createdAt: 2025-09-02T08:07:14.493912824
-updatedAt: 2025-09-02T10:20:17.606919054
+updatedAt: 2025-09-05T05:43:49.351537317
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -11,15 +11,15 @@ body:
   text: |-
     {
       "ownerId": 1,
-      "name": "Honda Activa 6G",
-      "description": "Reliable and fuel-efficient scooter, perfect for city commutes in Tirur.",
-      "model": "Activa 6G - 2023",
-      "pricePerDay": 450.0,
+      "name": "Honda Activa",
+      "description": "Reliable and fuel-efficient scooter, perfect for city commutes ",
+      "model": "Activa 6G - 2026",
+      "pricePerDay": 45.0,
       "main_photo": "https://your-storage-url.com/activa1.jpg",
       "second_photo": "https://your-storage-url.com/activa2.jpg",
       "third_photo": "",
-      "ownerPhoneNumber": "+919998887776",
-      "createdAt": "2025-09-02T09:10:00Z"
+      "ownerPhoneNumber": "+918998887776",
+      "createdAt": "2025-09-02T07:10:00Z"
     }
 bodyType: application/json
 description: ''
@@ -30,12 +30,12 @@ headers:
   id: U52kejnAgx
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2ODA4MzA5LCJleHAiOjE3NTY4OTQ3MDl9.OpyTHz8K9hNscGJvTwOHUphVvGgOBNX_zwkdRMIdjafoLrf4UItF3LV_iVc7tMhEz8_trEbliy1oUSN3rimD3Q
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NzA1MDk1MCwiZXhwIjoxNzU3MTM3MzUwfQ.KnvzDIzLdyJDb_-AfiDPzuIyiJ43LtkO1nF6h8Uz2V2yBuv9ITUP0G9k4d0tgx7KAe6gBCq7EBYTv3bd3Om75Q
   id: sgvmd4SWZI
 - enabled: true
   name: ''
   value: ''
-  id: 2jPBz4Qpa7
+  id: yu5B04xRFz
 method: POST
 name: Add Vehicle
 sortPriority: -1756800127694.0

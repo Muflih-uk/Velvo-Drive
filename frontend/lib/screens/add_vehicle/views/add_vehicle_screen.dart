@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/constants.dart';
 import "../../../controllers/vehicle_controller.dart";
 
 class AddVehicleScreen extends StatelessWidget {
@@ -11,13 +13,8 @@ class AddVehicleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => VehicleController(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Add New Vehicle 🚗'),
-          backgroundColor: Colors.deepPurple,
-          foregroundColor: Colors.white,
-        ),
-        body: const AddVehicleForm(),
+      child:const Scaffold(
+        body: AddVehicleForm(),
       ),
     );
   }
@@ -76,36 +73,37 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
             Form(
               key: _formKey,
               child: ListView(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(25.0),
                 children: [
+                   const SizedBox(height: 30,),
                   _buildSectionHeader('Vehicle Details'),
                   _buildTextFormField(
                     controller: _nameController,
                     label: 'Vehicle Name (e.g., Honda Activa 6G)',
-                    icon: Icons.car_crash,
+                    icon: 'Man',
                   ),
                   _buildTextFormField(
                     controller: _modelController,
                     label: 'Model (e.g., Activa 6G - 2023)',
-                    icon: Icons.calendar_today,
+                    icon: 'Delivery',
                   ),
                   _buildTextFormField(
                     controller: _descriptionController,
                     label: 'Description',
-                    icon: Icons.description,
+                    icon: "Order",
                     maxLines: 3,
                   ),
                   _buildTextFormField(
                     controller: _priceController,
                     label: 'Price per Day (₹)',
-                    icon: Icons.currency_rupee,
+                    icon: "card",
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
                   _buildTextFormField(
                     controller: _phoneController,
                     label: 'Owner Phone Number',
-                    icon: Icons.phone,
+                    icon: "Call",
                     keyboardType: TextInputType.phone,
                   ),
                   const SizedBox(height: 20),
@@ -184,7 +182,7 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
   Widget _buildTextFormField({
     required TextEditingController controller,
     required String label,
-    required IconData icon,
+    required String icon,
     int maxLines = 1,
     TextInputType? keyboardType,
     List<TextInputFormatter>? inputFormatters,
@@ -197,8 +195,22 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(
-          labelText: label,
-          prefixIcon: Icon(icon),
+          hintText: label,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
+            child: SvgPicture.asset(
+              "assets/icons/$icon.svg",
+              height: 24,
+              width: 24,
+              colorFilter: ColorFilter.mode(
+                  Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .color!
+                      .withOpacity(0.3),
+                  BlendMode.srcIn),
+            ),
+          ),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           filled: true,
           fillColor: Colors.grey[100],
@@ -235,7 +247,23 @@ class _AddVehicleFormState extends State<AddVehicleForm> {
                   : null,
             ),
             child: imageFile == null
-                ? const Center(child: Icon(Icons.add_a_photo, color: Colors.grey))
+                ? Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
+                    child: SvgPicture.asset(
+                      "assets/icons/Camera-add.svg",
+                      height: 24,
+                      width: 24,
+                      colorFilter: ColorFilter.mode(
+                          Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .color!
+                              .withOpacity(0.3),
+                          BlendMode.srcIn),
+                    ),
+                  ), 
+                )
                 : null,
           ),
         ),

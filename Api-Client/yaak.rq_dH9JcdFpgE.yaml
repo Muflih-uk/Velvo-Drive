@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_dH9JcdFpgE
 createdAt: 2025-09-04T13:14:22.241873645
-updatedAt: 2025-09-04T13:19:44.315784924
+updatedAt: 2025-09-05T05:46:52.174893135
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,12 +13,12 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlIiwiaWF0IjoxNzU2OTkxNTc2LCJleHAiOjE3NTcwNzc5NzZ9.JS62XiJ_h4MRF9W56yK0C2Okw832DJmxtBHQbHBmuyHl63IZQUCw7ZrBb7BVb1nucbfn2rtt2E1kOO05YaXBWA
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NzA1MDk1MCwiZXhwIjoxNzU3MTM3MzUwfQ.KnvzDIzLdyJDb_-AfiDPzuIyiJ43LtkO1nF6h8Uz2V2yBuv9ITUP0G9k4d0tgx7KAe6gBCq7EBYTv3bd3Om75Q
   id: ckmea6t6J5
 - enabled: true
   name: ''
   value: ''
-  id: TrecAAeZ8x
+  id: Qnw4BC6pzw
 method: POST
 name: Add Bookmark
 sortPriority: -1756800127693.997
