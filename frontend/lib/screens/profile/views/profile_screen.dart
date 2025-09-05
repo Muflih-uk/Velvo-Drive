@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/components/list_tile/divider_list_tile.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/provider/auth_provider.dart';
+import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
 import 'components/profile_card.dart';
 import 'components/profile_menu_item_list_tile.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+  @override
+  State<ProfileScreen> createState() => _StateProfileScreen();
+}
+
+class _StateProfileScreen extends State<ProfileScreen>{
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DataProvider>(context, listen: false).fetchUserDetail();
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,55 +50,55 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding / 2),
           ProfileMenuListTile(
-            text: "Wishlist",
-            svgSrc: "assets/icons/Category.svg",
+            text: "My Vehicles",
+            svgSrc: "assets/icons/Man.svg",
             press: () {},
           ),
-          const SizedBox(height: defaultPadding),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
-            child: Text(
-              "Personalization",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
-          DividerListTileWithTrilingText(
-            svgSrc: "assets/icons/Notification.svg",
-            title: "Notification",
-            trilingText: "Off",
-            press: () {
-              Navigator.pushNamed(context, enableNotificationScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Preferences",
-            svgSrc: "assets/icons/Preferences.svg",
-            press: () {
-              Navigator.pushNamed(context, preferencesScreenRoute);
-            },
-          ),
-          const SizedBox(height: defaultPadding),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
-            child: Text(
-              "Settings",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
-          ProfileMenuListTile(
-            text: "Language",
-            svgSrc: "assets/icons/Language.svg",
-            press: () {
-              Navigator.pushNamed(context, selectLanguageScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Location",
-            svgSrc: "assets/icons/Location.svg",
-            press: () {},
-          ),
+          // const SizedBox(height: defaultPadding),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(
+          //       horizontal: defaultPadding, vertical: defaultPadding / 2),
+          //   child: Text(
+          //     "Personalization",
+          //     style: Theme.of(context).textTheme.titleSmall,
+          //   ),
+          // ),
+          // DividerListTileWithTrilingText(
+          //   svgSrc: "assets/icons/Notification.svg",
+          //   title: "Notification",
+          //   trilingText: "Off",
+          //   press: () {
+          //     Navigator.pushNamed(context, enableNotificationScreenRoute);
+          //   },
+          // ),
+          // ProfileMenuListTile(
+          //   text: "Preferences",
+          //   svgSrc: "assets/icons/Preferences.svg",
+          //   press: () {
+          //     Navigator.pushNamed(context, preferencesScreenRoute);
+          //   },
+          // ),
+          // const SizedBox(height: defaultPadding),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(
+          //       horizontal: defaultPadding, vertical: defaultPadding / 2),
+          //   child: Text(
+          //     "Settings",
+          //     style: Theme.of(context).textTheme.titleSmall,
+          //   ),
+          // ),
+          // ProfileMenuListTile(
+          //   text: "Language",
+          //   svgSrc: "assets/icons/Language.svg",
+          //   press: () {
+          //     Navigator.pushNamed(context, selectLanguageScreenRoute);
+          //   },
+          // ),
+          // ProfileMenuListTile(
+          //   text: "Location",
+          //   svgSrc: "assets/icons/Location.svg",
+          //   press: () {},
+          // ),
           const SizedBox(height: defaultPadding),
           Padding(
             padding: const EdgeInsets.symmetric(

@@ -6,14 +6,32 @@ class DataProvider with ChangeNotifier {
 
   final DataController _dataController;
 
+  Map<String, dynamic> _user = {};
 
   bool _isLoading = false;
   List<dynamic> _data = [];
   String? _error;
 
+  Map<String, dynamic> get user => _user;
   bool get isLoading => _isLoading;
   List<dynamic> get data => _data;
   String? get error => _error;
+
+
+  Future<void> fetchUserDetail() async {
+    _isLoading = true;
+    _error = null;
+    notifyListeners(); 
+    try {
+      _user = await _dataController.fetchUserDetails();
+    } catch (e) {
+      _error = e.toString();
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
 
   Future<void> fetchVehicle() async {
     _isLoading = true;

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/provider/auth_provider.dart';
-import 'package:shop/route/route_constants.dart';
 
 import '../../../../constants.dart';
 
@@ -31,9 +30,7 @@ class _StateSignUpForm extends State<SignUpForm> {
         _emailController.text.trim(),
         _passwordController.text.trim(),
       );
-      if (success) {
-        Navigator.pushNamed(context, logInScreenRoute);
-      } else if (!success) {
+      if (!success) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(authProvider.error ?? 'Registration Failed')),
         );
