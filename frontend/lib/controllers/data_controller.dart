@@ -8,8 +8,8 @@ class DataController {
     try {
       final Response response = await _apiService.dio.get('vehicles/available');
       return response.data;
-    } on DioException catch (e) {
-      print("Error fetching profile: $e");
+    } on DioException catch(e) {
+      print("Get Error in Fetch Vehicle: $e");
       return [];
     }
   }
