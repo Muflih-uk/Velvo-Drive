@@ -69,7 +69,6 @@ class _StateUserForm extends State<UserForm> {
     // Use context.watch in the build method to listen for changes.
     final controller = context.watch<ProfileProvider>();
     final dataProvider = Provider.of<DataProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),

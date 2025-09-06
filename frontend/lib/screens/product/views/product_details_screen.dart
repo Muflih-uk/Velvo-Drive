@@ -16,14 +16,14 @@ import '../../../components/review_card.dart';
 import 'product_buy_now_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key, this.isProductAvailable = true});
+  ProductDetailsScreen(this.data);
 
-  final bool isProductAvailable;
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: isProductAvailable
+      bottomNavigationBar: data["available"]
           ? CartButton(
               price: 140,
               press: () {
@@ -61,7 +61,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ProductInfo(
               brand: "LIPSY LONDON",
               title: "Sleeveless Ruffle",
-              isAvailable: isProductAvailable,
+              isAvailable: data["available"],
               description:
                   "A cool gray cap in soft corduroy. Watch me.' By buying cotton products from Lindex, you’re supporting more responsibly...",
               rating: 4.4,

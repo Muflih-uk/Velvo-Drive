@@ -77,7 +77,7 @@ class _StatePopularProducts extends State<PopularProducts>{
                       title: provider.data[index]["model"],
                       price: provider.data[index]["pricePerDay"],
                       press: () {
-                        Navigator.pushNamed(context, productDetailsScreenRoute,);
+                        Navigator.pushNamed(context, productDetailsScreenRoute,arguments: provider.data[index]);
                       },
                     ),
                   )

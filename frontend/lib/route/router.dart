@@ -73,8 +73,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case productDetailsScreenRoute:
       return MaterialPageRoute(
         builder: (context) {
-          bool isProductAvailable = settings.arguments as bool? ?? true;
-          return ProductDetailsScreen(isProductAvailable: isProductAvailable);
+          Map<String, dynamic> data = settings.arguments as Map<String, dynamic>? ?? {};
+          return ProductDetailsScreen(data);
         },
       );
     case productReviewsScreenRoute:
