@@ -50,20 +50,20 @@ class _EntryPointState extends State<EntryPoint> {
             fontWeight: FontWeight.w400
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, notificationsScreenRoute);
-            },
-            icon: SvgPicture.asset(
-              "assets/icons/Notification.svg",
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                  Theme.of(context).textTheme.bodyLarge!.color!,
-                  BlendMode.srcIn),
-            ),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {
+        //       Navigator.pushNamed(context, notificationsScreenRoute);
+        //     },
+        //     icon: SvgPicture.asset(
+        //       "assets/icons/Notification.svg",
+        //       height: 24,
+        //       colorFilter: ColorFilter.mode(
+        //           Theme.of(context).textTheme.bodyLarge!.color!,
+        //           BlendMode.srcIn),
+        //     ),
+        //   ),
+        // ],
       ),
       body: PageTransitionSwitcher(
         duration: defaultDuration,
@@ -107,10 +107,10 @@ class _EntryPointState extends State<EntryPoint> {
               label: "Discover",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Bookmark.svg"),
+              icon: svgIcon("assets/icons/Man.svg"),
               activeIcon:
-                  svgIcon("assets/icons/Bookmark.svg", color: primaryColor),
-              label: "Bookmark",
+                  svgIcon("assets/icons/Man.svg", color: primaryColor),
+              label: "My Vehicles",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Profile.svg"),

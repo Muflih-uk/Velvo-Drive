@@ -16,8 +16,7 @@ import '../../../components/review_card.dart';
 import 'product_buy_now_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  ProductDetailsScreen(this.data);
-
+  const ProductDetailsScreen(this.data);
   final Map<String, dynamic> data;
 
   @override

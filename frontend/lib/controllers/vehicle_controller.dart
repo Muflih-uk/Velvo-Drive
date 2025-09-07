@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:intl/intl.dart';
+import 'package:shop/route/screen_export.dart';
 import 'package:shop/services/api_service.dart';
 
 import '../models/vehicle_model.dart';
@@ -129,7 +130,7 @@ class VehicleController with ChangeNotifier {
     _setLoading(true);
 
     if (_mainImage == null || _secondImage == null) {
-      _showSnackBar(context, 'Main and Second photos are required.', isError: true);
+      _showSnackBar(context, 'Main and Second photos are required.',"Failed", isError: true);
       _setLoading(false);
       return;
     }
@@ -160,7 +161,7 @@ class VehicleController with ChangeNotifier {
         data: vehicle.toJson()
       );
       
-      _showSnackBar(context, 'Vehicle added successfully!');
+      _showSnackBar(context, 'Vehicle added successfully!','Success');
 
     } on DioException catch (e) {
       String errorMessage = 'API Error: Failed to add vehicle.';
@@ -169,9 +170,9 @@ class VehicleController with ChangeNotifier {
       } else {
         errorMessage = 'Network Error: Please check your connection.';
       }
-       _showSnackBar(context, errorMessage, isError: true);
+       _showSnackBar(context, errorMessage,'Failed', isError: true);
     } catch (e) {
-      _showSnackBar(context, 'An unexpected error occurred: $e', isError: true);
+      _showSnackBar(context, 'An unexpected error occurred: $e',"Failed", isError: true);
     } finally {
       _setLoading(false);
     }
@@ -193,7 +194,7 @@ class VehicleController with ChangeNotifier {
           "email": formData["email"]
         }
       );
-      _showSnackBar(context, 'Profile Updated');
+      _showSnackBar(context, 'Profile Updated', 'Success');
 
     } on DioException catch (e) {
       String errorMessage = 'API Error: Failed to add vehicle.';
@@ -202,9 +203,9 @@ class VehicleController with ChangeNotifier {
       } else {
         errorMessage = 'Network Error: Please check your connection.';
       }
-       _showSnackBar(context, errorMessage, isError: true);
+       _showSnackBar(context, errorMessage, "Fail" ,isError: true);
     } catch (e) {
-      _showSnackBar(context, 'An unexpected error occurred: $e', isError: true);
+      _showSnackBar(context, 'An unexpected error occurred: $e',"Fail", isError: true);
     } finally {
       _setLoading(false);
     }
@@ -216,12 +217,24 @@ class VehicleController with ChangeNotifier {
     notifyListeners();
   }
   
-  void _showSnackBar(BuildContext context, String message, {bool isError = false}) {
-     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+  void _showSnackBar(BuildContext context, String message,String title, {bool isError = false}) {
+     showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
           content: Text(message),
-          backgroundColor: isError ? Colors.redAccent : Colors.green,
-        ),
-      );
+          actions: [
+            TextButton(
+              onPressed: (){
+                Navigator.pop(context);
+                Navigator.pushNamed(context, entryPointScreenRoute);
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

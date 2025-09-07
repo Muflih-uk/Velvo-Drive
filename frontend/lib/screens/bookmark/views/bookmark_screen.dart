@@ -5,7 +5,6 @@ import 'package:shop/components/skleton/skelton.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/screen_export.dart';
-import 'package:shop/screens/search/views/components/search_form.dart';
 
 
 class BookmarkScreen extends StatefulWidget {
@@ -18,7 +17,7 @@ class _StateBookmarkScreen extends State<BookmarkScreen>{
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<DataProvider>(context, listen: false).fetchBookmarkedVehicle();
+      Provider.of<DataProvider>(context, listen: false).fetchUserVehicle();
     });
   }
 
@@ -31,10 +30,10 @@ class _StateBookmarkScreen extends State<BookmarkScreen>{
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(defaultPadding),
-                child: SearchForm(),
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.all(defaultPadding),
+              //   child: SearchForm(),
+              // ),
 
               Padding(
                 padding: const EdgeInsets.all(defaultPadding),
@@ -59,7 +58,7 @@ class _StateBookmarkScreen extends State<BookmarkScreen>{
                       return const Center(child: Text('No vehicles found.'));
                     }
                     return RefreshIndicator(
-                      onRefresh: () => provider.fetchBookmarkedVehicle(),
+                      onRefresh: () => provider.fetchUserVehicle(),
                       child: GridView.count(
                         crossAxisCount: 2,
                         shrinkWrap: true,

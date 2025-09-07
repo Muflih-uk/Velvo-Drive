@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constants.dart';
 import 'package:shop/provider/auth_provider.dart';
+import 'package:shop/provider/bottom_nav_provider.dart';
 import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
@@ -28,6 +29,8 @@ class _StateProfileScreen extends State<ProfileScreen>{
 
   @override
   Widget build(BuildContext context) {
+
+    final bottomProvider = Provider.of<BottomNavProvider>(context);
     return Scaffold(
       body: Consumer<DataProvider>(
         builder: (ctx, provider, child){
@@ -74,7 +77,9 @@ class _StateProfileScreen extends State<ProfileScreen>{
                 ProfileMenuListTile(
                   text: "My Vehicles",
                   svgSrc: "assets/icons/Man.svg",
-                  press: () {},
+                  press: () {
+                    bottomProvider.setIndex(2);
+                  },
                 ),
                 // const SizedBox(height: defaultPadding),
                 // Padding(
@@ -133,9 +138,7 @@ class _StateProfileScreen extends State<ProfileScreen>{
                 ProfileMenuListTile(
                   text: "Get Help",
                   svgSrc: "assets/icons/Help.svg",
-                  press: () {
-                    Navigator.pushNamed(context, getHelpScreenRoute);
-                  },
+                  press: () {},
                 ),
                 ProfileMenuListTile(
                   text: "FAQ",
