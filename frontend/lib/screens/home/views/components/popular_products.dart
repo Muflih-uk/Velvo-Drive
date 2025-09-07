@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/components/product/product_card.dart';
 import 'package:shop/components/skleton/product/products_skelton.dart';
+import 'package:shop/models/get_profuct.dart';
 import 'package:shop/provider/data_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
@@ -59,6 +60,7 @@ class _StatePopularProducts extends State<PopularProducts>{
               if (provider.data.isEmpty) {
                 return const Center(child: Text('No vehicles found.'));
               }
+
               return RefreshIndicator(
                 onRefresh: () => provider.fetchPopularVehicle(),
                 child: ListView.builder(
@@ -77,7 +79,30 @@ class _StatePopularProducts extends State<PopularProducts>{
                       title: provider.data[index]["model"],
                       price: provider.data[index]["pricePerDay"],
                       press: () {
-                        Navigator.pushNamed(context, productDetailsScreenRoute,arguments: provider.data[index]);
+                        VehicleGetModel vehicleGetModel = VehicleGetModel(
+                          id: provider.data[index]["id"], 
+                          name: provider.data[index]["name"], 
+                          description: provider.data[index]["description"], 
+                          model: provider.data[index]["model"], 
+                          pricePerDay: provider.data[index]["pricePerDay"], 
+                          mainPhoto: provider.data[index]["main_photo"], 
+                          secondPhoto: provider.data[index]["second_photo"], 
+                          thirdPhoto: provider.data[index]["third_photo"], 
+                          ownerPhoneNumber: provider.data[index]["ownerPhoneNumber"], 
+                          createdAt: provider.data[index]["createdAt"], 
+                          rentalCount: provider.data[index]["rentalCount"], 
+                          owner: Owner(
+                            id: provider.data[index]["owner"]["id"], 
+                            username: provider.data[index]["owner"]["username"], 
+                            email: provider.data[index]["owner"]["email"],
+                            photo: provider.data[index]["owner"]["photo"],
+                            aboutYou: provider.data[index]["owner"]["aboutYou"],
+                            number: provider.data[index]["owner"]["number"],
+                          ), 
+                          flashSale: provider.data[index]["flashSale"],
+                          available: provider.data[index]["available"]
+                        );
+                        Navigator.pushNamed(context, productDetailsScreenRoute,arguments: vehicleGetModel);
                       },
                     ),
                   )

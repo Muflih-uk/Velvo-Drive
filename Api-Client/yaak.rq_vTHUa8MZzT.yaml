@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_vTHUa8MZzT
 createdAt: 2025-09-02T08:15:09.721002994
-updatedAt: 2025-09-05T09:28:51.452491691
+updatedAt: 2025-09-06T10:50:24.046674976
 workspaceId: wk_6NG3LvfCZM
 folderId: null
 authentication: {}
@@ -13,12 +13,12 @@ description: ''
 headers:
 - enabled: true
   name: Authorization
-  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NjgwMzAxOCwiZXhwIjoxNzU2ODg5NDE4fQ.0Xa8PZAoMfUlPdjt8EPTJI607SNnyaIRzH_YnugJQijVVqezIccaAT4kJe4pEN7x_HQ7vEPBehnutNZvB_fQQA
+  value: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NzE1NTgwMywiZXhwIjoxNzU3MjQyMjAzfQ.QJjBpI449HbDPRrDATY3jC6y8YbHQDeSWxz2_BSxKyIN6njtPHTvFJFQFLyskzfMGd8H_IVckQR3xbil8ilILQ
   id: Q3Mg4H8q3k
 - enabled: true
   name: ''
   value: ''
-  id: TvuF8EtG03
+  id: iuhPwBTEtN
 method: GET
 name: Polpular Vehicle
 sortPriority: 687.5

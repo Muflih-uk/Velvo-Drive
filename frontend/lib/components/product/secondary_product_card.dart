@@ -35,7 +35,7 @@ class SecondaryProductCard extends StatelessWidget {
       child: Row(
         children: [
           AspectRatio(
-            aspectRatio: 1.15,
+            aspectRatio: 0.5,
             child: Stack(
               children: [
                 NetworkImageWithLoader(image, radius: defaultBorderRadious),
@@ -93,7 +93,7 @@ class SecondaryProductCard extends StatelessWidget {
                       ? Row(
                           children: [
                             Text(
-                              "\$$priceAfetDiscount",
+                              "₹$priceAfetDiscount",
                               style: const TextStyle(
                                 color: Color(0xFF31B0D8),
                                 fontWeight: FontWeight.w500,
@@ -102,7 +102,7 @@ class SecondaryProductCard extends StatelessWidget {
                             ),
                             const SizedBox(width: defaultPadding / 4),
                             Text(
-                              "\$$price",
+                              "₹$price",
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
@@ -115,7 +115,7 @@ class SecondaryProductCard extends StatelessWidget {
                           ],
                         )
                       : Text(
-                          "\$$price",
+                          "₹$price",
                           style: const TextStyle(
                             color: Color(0xFF31B0D8),
                             fontWeight: FontWeight.w500,

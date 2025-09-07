@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/entry_point.dart';
+import 'package:shop/models/get_profuct.dart';
 
 import 'screen_export.dart';
 
@@ -73,8 +74,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case productDetailsScreenRoute:
       return MaterialPageRoute(
         builder: (context) {
-          Map<String, dynamic> data = settings.arguments as Map<String, dynamic>? ?? {};
-          return ProductDetailsScreen(data);
+          VehicleGetModel vehicleGetModel = settings.arguments as VehicleGetModel;
+          return ProductDetailsScreen(vehicleGetModel);
         },
       );
     case productReviewsScreenRoute:

@@ -20,7 +20,7 @@ class ProductQuantity extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Quantity",
+          "Days",
           style: Theme.of(context).textTheme.titleSmall,
         ),
         const SizedBox(height: defaultPadding),
