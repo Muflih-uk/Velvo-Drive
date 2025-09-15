@@ -25,7 +25,7 @@ public class FeaturedController {
         return ResponseEntity.ok(vehicleService.getFlashSaleVehicles());
     }
 
-    @GetMapping("bestseller")
+    @GetMapping("/bestseller")
     public ResponseEntity<List<Vehicle>> getBestSeller(){
         return ResponseEntity.ok(vehicleService.getPopularVehicles());
     }

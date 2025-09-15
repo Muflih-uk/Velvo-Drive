@@ -15,7 +15,7 @@ class ApiService {
     _dio = Dio(
       BaseOptions(
         baseUrl: 'https://velvo-drive.onrender.com/api/', 
-        connectTimeout: const Duration(milliseconds: 15000),
+        connectTimeout: const Duration(milliseconds: 120000),
         receiveTimeout: const Duration(milliseconds: 15000),
         headers: {
           'Content-Type': 'application/json',
